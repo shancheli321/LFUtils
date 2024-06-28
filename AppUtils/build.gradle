@@ -27,6 +27,18 @@ android {
     }
 }
 
+afterEvaluate {
+    android.libraryVariants.each {variant->
+        publishing.publications.create(variant.name,MavenPublication){
+            from components.findByName(variant.name)
+            groupId = 'com.github.shancheli321'//自定义
+            artifactId = 'LFUtils'//自定义
+            version = '1.0.6'//自定义
+        }
+    }
+}
+
+
 dependencies {
     implementation libs.appcompat
     implementation libs.material
