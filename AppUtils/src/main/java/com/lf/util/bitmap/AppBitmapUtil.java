@@ -35,7 +35,6 @@ public class AppBitmapUtil {
         } catch (Exception e) {
 
         } finally {
-            retriever.release();
         }
 
         return false;
@@ -68,7 +67,6 @@ public class AppBitmapUtil {
         } catch (Exception e) {
 
         } finally {
-            retriever.release();
         }
 
         return firstFrame;

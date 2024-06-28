@@ -14,8 +14,38 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+
         google()
+        jcenter()
         mavenCentral()
+        maven {
+            allowInsecureProtocol(true)
+            url 'https://jitpack.io'
+        }
+        maven { url "https://gitee.com/ezy/repo/raw/cosmo/"}
+
+        // banner
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+
+        // 阿里云镜像
+        maven {
+            url " https://maven.aliyun.com/nexus/content/repositories/google"
+        }
+        maven {
+            url "https://maven.aliyun.com/nexus/content/repositories/jcenter"
+        }
+        maven {
+
+            // jcenter和mavenCentral的聚合仓库
+            url "https://maven.aliyun.com/nexus/content/groups/public"
+        }
+
+        maven {
+
+            // jcenter和mavenCentral的聚合仓库
+            url "https://maven.aliyun.com/repository/public"
+        }
+
     }
 }
 
