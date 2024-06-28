@@ -1,8 +1,9 @@
 plugins {
     alias(libs.plugins.androidLibrary)
-//    id 'maven-publish'
-    id 'com.github.dcendents.android-maven'
+    id 'maven-publish'
+//    id 'com.github.dcendents.android-maven' //必加
 }
+
 
 group='com.github.shancheli321'
 
