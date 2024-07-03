@@ -39,6 +39,24 @@ android {
 //    }
 //}
 
+
+//添加这一行，告诉gradle应用到项目中
+//apply plugin: 'maven'
+//
+////配置模块发布到本地Maven仓库
+//uploadArchives{
+//    repositories.mavenDeployer{
+//        // 配置本地仓库路径，这里是项目的根目录下的maven目录中
+//        repository(url: uri('../maven'))
+//        // 唯一标识 一般为模块包名 也可其他
+//        pom.groupId = "com.github.shancheli321"
+//        // 项目名称（一般为模块名称 也可其他
+//        pom.artifactId = "LFUtils"
+//        // 发布的版本号
+//        pom.version = "1.0.0"
+//    }
+//}
+
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.3.0'
