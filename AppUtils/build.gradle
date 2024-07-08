@@ -70,4 +70,8 @@ dependencies {
 
     // sp存储
     implementation "com.tencent:mmkv:1.0.22"
+
+    // https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/README-CN.md
+    implementation 'com.blankj:utilcodex:1.31.1'
+
 }
