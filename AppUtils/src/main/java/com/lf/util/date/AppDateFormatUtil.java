@@ -5,8 +5,13 @@ import com.lf.util.log.AppLog;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
+
 
 public class AppDateFormatUtil {
 
@@ -213,6 +218,53 @@ public class AppDateFormatUtil {
             AppLog.e("AppSysDateMgr-->>getSysIsToday", e.getMessage().toString());
         }
         return falg;
+    }
+
+
+    /**
+     * 时间戳 判断是否是今天
+     * @param time
+     * @return
+     */
+    public static boolean isToday(long time) {
+
+        // 时间戳（秒）
+        long timestamp = time / 1000; // 当前时间戳，为了示例我们直接取当前时间
+
+        // 获取系统默认时区的Calendar实例
+        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+        calendar.setTimeInMillis(timestamp * 1000); // 注意：Calendar需要毫秒
+
+        // 获取今天的Calendar实例
+        Calendar today = Calendar.getInstance(TimeZone.getDefault());
+        today.set(Calendar.HOUR_OF_DAY, 0);
+        today.set(Calendar.MINUTE, 0);
+        today.set(Calendar.SECOND, 0);
+        today.set(Calendar.MILLISECOND, 0);
+
+        // 比较两个Calendar的日期部分是否相等
+        boolean isToday = calendar.get(Calendar.YEAR) == today.get(Calendar.YEAR) &&
+                calendar.get(Calendar.MONTH) == today.get(Calendar.MONTH) &&
+                calendar.get(Calendar.DAY_OF_MONTH) == today.get(Calendar.DAY_OF_MONTH);
+
+        return isToday;
+    }
+
+    public static boolean isToday2(long time) {
+        // 假设的时间戳（秒）
+        long timestamp = time / 1000; // 当前时间戳，为了示例我们直接取当前时间
+
+        // 将时间戳转换为Instant
+        Instant instant = Instant.ofEpochSecond(timestamp);
+
+        // 将Instant转换为LocalDate（注意时区）
+        LocalDate today = LocalDate.now(ZoneId.systemDefault()); // 获取系统默认时区的今天
+        LocalDate dateFromTimestamp = instant.atZone(ZoneId.systemDefault()).toLocalDate(); // 时间戳转换得到的日期
+
+        // 比较两个LocalDate是否相等
+        boolean isToday = today.equals(dateFromTimestamp);
+
+        return isToday;
     }
 
     /**
