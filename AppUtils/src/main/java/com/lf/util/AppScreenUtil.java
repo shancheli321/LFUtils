@@ -2,9 +2,9 @@ package com.lf.util;
 
 import android.content.Context;
 
-public class AppScreenFormatUtil {
+public class AppScreenUtil {
 
-    public AppScreenFormatUtil() {
+    public AppScreenUtil() {
 
     }
 

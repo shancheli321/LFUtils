@@ -53,7 +53,7 @@ public class AppNetWorkUtil {
      * 无网络连接时进入网络设置界面
      * 进入手机中的wifi网络设置界面
      */
-    public static void enterNetworkSet(Context context) {
+    public static void gotoNetworkSetting(Context context) {
         context.startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
     }
 
